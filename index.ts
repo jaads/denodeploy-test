@@ -4,9 +4,8 @@ interface answer {
 }
 
 function handleRequest(params) {
-  const json = JSON.stringify({
-    message: "Hello from Deno Deploy",
-  });
+  const res = createResponse();
+  const json = JSON.stringify(res);
 
   return new Response(json, {
     headers: {
@@ -15,7 +14,7 @@ function handleRequest(params) {
   });
 }
 
-function getAnswer(param: number): answer {
+function getAnswer(): answer {
   const anAnswer: answer = {
     hello: "hello",
     world: "world",
@@ -25,8 +24,8 @@ function getAnswer(param: number): answer {
 
 function createResponse(): answer[] {
   const answers: answer[] = [];
-  answers.push(getAnswer(1));
-  answers.push(getAnswer(2));
+  answers.push(getAnswer());
+  answers.push(getAnswer());
   return answers;
 }
 
