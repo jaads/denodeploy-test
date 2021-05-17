@@ -27,7 +27,6 @@ function createResponse(): answer[] {
   const answers: answer[] = [];
   answers.push(getAnswer(1));
   answers.push(getAnswer(2));
-  answers.push({ lorem: "ipsum2" });
   return answers;
 }
 
